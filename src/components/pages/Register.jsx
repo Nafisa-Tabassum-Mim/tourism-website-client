@@ -1,12 +1,17 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../firebase/AuthProvider";
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
+import { IoEye } from "react-icons/io5";
+import { IoEyeOff } from "react-icons/io5";
 
 const Register = () => {
 
     const {createUser,setLoading} = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const [showPass, setshowPass] = useState(false)
 
     const handleRegister = e => {
         e.preventDefault();
@@ -14,7 +19,6 @@ const Register = () => {
         const photo = e.target.photo.value
         const email = e.target.email.value
         const password = e.target.password.value
-        console.log(name, photo, email, password)
 
 
         // check pass 
@@ -35,6 +39,8 @@ const Register = () => {
         createUser(email, password)
             .then((result) => {
                 toast.success('Your id is created successfully')
+                navigate(location?.state ? location.state : '/')
+
             })
             .catch((error) => {
                 setLoading(false)
@@ -72,17 +78,16 @@ const Register = () => {
                             <span className="label-text">Password</span>
                         </label>
                         <div className="relative">
-                            <input type="password" name="password" placeholder="password" id="" />
-                            {/* <input type={showPass ? "text" : "password"} placeholder="password" name="password" className="input input-bordered w-full" required />
+                            <input type={showPass ? "text" : "password"} placeholder="password" name="password" className="input input-bordered w-full" required />
                             <span className="absolute top-3 right-3" onClick={() => setshowPass(!showPass)}>
                                 {showPass ? <IoEye /> : <IoEyeOff />
                                 }
 
-                            </span> */}
+                            </span>
                         </div>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn bg-blue-300 text-white hover:bg-blue-400 ">Register</button>
+                        <button className="btn bg-blue-400 text-white hover:bg-blue-300 ">Register</button>
                     </div>
                     <p className="text-center mt-4">Already have an account ? <Link className="text-blue-300 font-bold" to="/login">Login</Link> </p>
 

@@ -1,8 +1,23 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import '../../App.css';
+import { useContext } from "react";
+import { AuthContext } from "../firebase/AuthProvider";
 
 
 const Navbar = () => {
+
+    const { logOut, user } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch()
+    }
+
     const links = <>
         <li className="font-medium text-lg"><NavLink to="/" >Home</NavLink></li>
         <li className="font-medium  text-lg"><NavLink to="/alltouristspot">All Tourists Spot</NavLink></li>
@@ -24,7 +39,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost lg:text-2xl">Island <span className="text-blue-300"> Resorts </span></Link>
+                <Link to='/' className="btn btn-ghost lg:text-2xl"> Royal <span className="text-blue-300"> Tourism </span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal  px-1">
@@ -32,29 +47,26 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {/* {
+                {
                     user ?
                         (
                             <>
-
+                                <div tabIndex={0} role="button" data-tip={`${user.displayName}`} className="tooltip tooltip-bottom tooltip-bg-orange-500 z-50 btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
+                                    </div>
+                                </div>
                                 <button onClick={handleLogout} className="btn bg-blue-300 text-white mr-2">Logout</button>
                             </>
 
                         )
                         :
                         (<>
-                            <Link to='/login' className="btn bg-blue-300 text-white">Login</Link> 
+                            <Link to='/login' className="btn bg-blue-300 text-white">Login</Link>
                             <Link to='/register' className="btn bg-blue-300 text-white">Register</Link>
                         </>
-
                         )
-                } */}
-                <div>
-                    <button className="btn bg-blue-300 text-white mr-2">Logout</button>
-
-                    <Link to='/login' className="btn bg-blue-300 text-white">Login</Link>
-                    <Link to='/register' className="btn bg-blue-300 text-white">Register</Link>
-                </div>
+                }
             </div>
         </div>
     );

@@ -1,15 +1,44 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { SiGithub } from "react-icons/si";
+import { useContext, useState } from "react";
+import { AuthContext } from "../firebase/AuthProvider";
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+import { IoEye } from "react-icons/io5";
+import { IoEyeOff } from "react-icons/io5";
 
 const Login = () => {
+
+    const { signIn,setLoading} = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const [showPass, setshowPass] = useState(false)
+
+    const handleLogin = e => {
+        e.preventDefault()
+        const email = e.target.email.value
+        const password = e.target.password.value
+
+        signIn(email, password)
+        .then(() => {
+            toast.success('You are login now')
+            navigate(location?.state ? location.state : '/')
+        })
+        .catch((error) => {
+            setLoading(false)
+            toast.error("Email or Password is incorrect")
+        })
+    }
+
+
     return (
         <div className="flex justify-center mx-4">
             {/* <Helmet>
                 <title> Login </title>
             </Helmet> */}
             <div className="card  w-full max-w-md shadow-md shadow-blue-300 shadow-t-2 bg-base-100 my-24 ">
-                <form className="card-body" >
+                <form className="card-body" onSubmit={handleLogin}>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
@@ -21,20 +50,19 @@ const Login = () => {
                             <span className="label-text">Password</span>
                         </label>
                         <div className="relative">
-                            <input type="password" name="password" placeholder="password" id="" />
-                            {/* <input type={showPass ? "text" : "password"} placeholder="password" name="password" className="input input-bordered w-full" required />
+                            <input type={showPass ? "text" : "password"} placeholder="password" name="password" className="input input-bordered w-full" required />
                             <span className="absolute top-3 right-3" onClick={() => setshowPass(!showPass)}>
                                 {showPass ? <IoEye /> : <IoEyeOff />
                                 }
 
-                            </span> */}
+                            </span>
                         </div>
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn bg-blue-300 text-white hover:bg-blue-300 ">Login</button>
+                        <button  className="btn bg-blue-400 text-white hover:bg-blue-300 ">Login</button>
                     </div>
                     <div className="text-center">
                         You can also login by
@@ -42,9 +70,9 @@ const Login = () => {
                     <div className="flex items-center  justify-center">
                         <div className="border-b border-black w-full"></div>
                         <div className="flex items-center gap-1 relative z-10">
-                            <button  className="border border-blue-300 rounded-lg p-2 text-[30px]"><FcGoogle /></button>
+                            <button className="border border-blue-300 rounded-lg p-2 text-[30px]"><FcGoogle /></button>
                             <p className="text-gray-500">or</p>
-                            <button  className="border border-blue-300 rounded-lg p-2 text-[30px]"><SiGithub /></button>
+                            <button className="border border-blue-300 rounded-lg p-2 text-[30px]"><SiGithub /></button>
                         </div>
                         <div className="border-b border-black w-full"></div>
                     </div>
@@ -53,7 +81,7 @@ const Login = () => {
                 </form>
 
             </div >
-            {/* <ToastContainer></ToastContainer> */}
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
