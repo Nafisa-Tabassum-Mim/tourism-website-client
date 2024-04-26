@@ -1,14 +1,54 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { AuthContext } from "../firebase/AuthProvider";
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
+
+    const {createUser,setLoading} = useContext(AuthContext)
+
+    const handleRegister = e => {
+        e.preventDefault();
+        const name = e.target.name.value
+        const photo = e.target.photo.value
+        const email = e.target.email.value
+        const password = e.target.password.value
+        console.log(name, photo, email, password)
+
+
+        // check pass 
+        if (password.length < 6) {
+            toast.warning('Password must be 6 character long !')
+            return
+        }
+        else if (!/[A-Z]/.test(password)) {
+            toast.warning('Password should have at least one uppercase !')
+            return
+        }
+        else if (!/[a-z]/.test(password)) {
+            toast.warning('Password should have at least one lowercase !')
+            return
+        }
+
+        // create user 
+        createUser(email, password)
+            .then((result) => {
+                toast.success('Your id is created successfully')
+            })
+            .catch((error) => {
+                setLoading(false)
+                toast.error(error.code)
+            })
+    }
+
     return (
         <div className="flex justify-center mx-4">
             {/* <Helmet>
                 <title>Register </title>
             </Helmet> */}
             <div className="card  w-full max-w-md shadow-md shadow-blue-300 shadow-t-2 bg-base-100 my-24 ">
-                <form className="card-body" >
+                <form className="card-body" onSubmit={handleRegister}>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Name</span>
@@ -42,14 +82,14 @@ const Register = () => {
                         </div>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn bg-blue-300 text-white hover:bg-blue-300 ">Register</button>
+                        <button className="btn bg-blue-300 text-white hover:bg-blue-400 ">Register</button>
                     </div>
                     <p className="text-center mt-4">Already have an account ? <Link className="text-blue-300 font-bold" to="/login">Login</Link> </p>
 
                 </form>
 
             </div >
-            {/* <ToastContainer /> */}
+            <ToastContainer />
         </div>
     );
 };

@@ -1,9 +1,13 @@
+import { NavLink } from "react-router-dom";
 
 const ErrorPage = () => {
     return (
-        <div>
-            
-        </div>
+        <div className="text-center text-xl mt-[300px] ">
+        <h2>Opps!!!!!!</h2>
+        <button className="bg-blue-400 rounded-xl p-4 mt-2 text-white">
+            <NavLink to='/'>Go Back</NavLink>
+        </button>
+    </div>
     );
 };
 
