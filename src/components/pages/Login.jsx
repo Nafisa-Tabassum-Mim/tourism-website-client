@@ -10,7 +10,7 @@ import { IoEyeOff } from "react-icons/io5";
 
 const Login = () => {
 
-    const { signIn,setLoading} = useContext(AuthContext)
+    const { signIn, setLoading,signInWithGoogle,signWithGithub } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
     const [showPass, setshowPass] = useState(false)
@@ -21,16 +21,36 @@ const Login = () => {
         const password = e.target.password.value
 
         signIn(email, password)
-        .then(() => {
-            toast.success('You are login now')
-            navigate(location?.state ? location.state : '/')
-        })
-        .catch((error) => {
-            setLoading(false)
-            toast.error("Email or Password is incorrect")
-        })
+            .then(() => {
+                toast.success('You are login now')
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch((error) => {
+                setLoading(false)
+                toast.error("Email or Password is incorrect")
+            })
     }
 
+    const handleGoogleSign = () => {
+        signInWithGoogle()
+            .then((result) => {
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch((error) => {
+                setLoading(false)
+                toast.error(error.code)
+            })
+    }
+    const handleGithubSign = () => {
+        signWithGithub()
+            .then((result) => {
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch((error) => {
+                setLoading(false)
+                toast.error(error.code)
+            })
+    }
 
     return (
         <div className="flex justify-center mx-4">
@@ -62,7 +82,7 @@ const Login = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <button  className="btn bg-blue-400 text-white hover:bg-blue-300 ">Login</button>
+                        <button className="btn bg-blue-400 text-white hover:bg-blue-300 ">Login</button>
                     </div>
                     <div className="text-center">
                         You can also login by
@@ -70,9 +90,9 @@ const Login = () => {
                     <div className="flex items-center  justify-center">
                         <div className="border-b border-black w-full"></div>
                         <div className="flex items-center gap-1 relative z-10">
-                            <button className="border border-blue-300 rounded-lg p-2 text-[30px]"><FcGoogle /></button>
+                            <button onClick={handleGoogleSign} className="border border-blue-300 rounded-lg p-2 text-[30px]"><FcGoogle /></button>
                             <p className="text-gray-500">or</p>
-                            <button className="border border-blue-300 rounded-lg p-2 text-[30px]"><SiGithub /></button>
+                            <button onClick={handleGithubSign} className="border border-blue-300 rounded-lg p-2 text-[30px]"><SiGithub /></button>
                         </div>
                         <div className="border-b border-black w-full"></div>
                     </div>

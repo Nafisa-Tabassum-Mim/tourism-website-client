@@ -8,7 +8,7 @@ import { IoEyeOff } from "react-icons/io5";
 
 const Register = () => {
 
-    const {createUser,setLoading} = useContext(AuthContext)
+    const { createUser, setLoading ,updateUserId} = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
     const [showPass, setshowPass] = useState(false)
@@ -39,7 +39,10 @@ const Register = () => {
         createUser(email, password)
             .then((result) => {
                 toast.success('Your id is created successfully')
-                navigate(location?.state ? location.state : '/')
+                updateUserId(name, photo)
+                    .then(() => {
+                        navigate(location?.state ? location.state : '/')
+                    })
 
             })
             .catch((error) => {
