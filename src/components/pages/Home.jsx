@@ -1,11 +1,13 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import TourismSection from "../addTouristPage/TourismSection";
+import { useState } from "react";
+import MyList from "../addTouristPage/MyList";
 
 const Home = () => {
 
-    // const loadedCoffees = useLoaderData();
-    // const [coffees, setCoffees] = ustourism(loadedCoffees);
+    // const loadedTourisms = useLoaderData();
+    // const [tourisms, setTourisms] = useState(loadedTourisms);
 
     const tourisms = useLoaderData()
 
@@ -21,11 +23,10 @@ const Home = () => {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 mt-4">
                     {
-                        tourisms.slice(0,6).map(tourism => <TourismSection key={tourism._id} tourism={tourism}></TourismSection>)
+                        tourisms.slice(0, 6).map(tourism => <TourismSection key={tourism._id} tourism={tourism}></TourismSection>)
                     }
                 </div>
             </section >
-
         </div>
     );
 };
