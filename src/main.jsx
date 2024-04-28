@@ -12,6 +12,7 @@ import Login from './components/pages/Login.jsx';
 import Register from './components/pages/Register.jsx';
 import AuthProvider from './components/firebase/AuthProvider.jsx';
 import AddTourist from './components/addTouristPage/AddTourist.jsx';
+import PrivateRoute from './components/firebase/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/tourism')
       },
       {
         path: '/login',
@@ -33,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/addtouristspot',
-        element: <AddTourist></AddTourist>
+        element: <PrivateRoute><AddTourist></AddTourist></PrivateRoute>
       },
     ]
   },

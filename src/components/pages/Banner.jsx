@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+// import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -33,7 +33,7 @@ const Banner = () => {
                     slot="container-start"
                     className="parallax-bg"
                     style={{
-                        'background-image':
+                        'backgroundImage':
                             'url(https://i.ibb.co/86YLD85/hallstatt-3609863-640.jpg)',
                     }}
                     data-swiper-parallax="-23%"
