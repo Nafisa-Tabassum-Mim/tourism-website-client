@@ -6,7 +6,6 @@ const TouristDetails = () => {
     const tourisms = useLoaderData()
     const { _id } = useParams()
     const tourism = tourisms.find(tourism => tourism._id === _id)
-    console.log(tourism)
 
     return (
         <div className="flex flex-col md:flex-row items-center justify-center gap-x-14 mt-8 mx-4 mb-8">

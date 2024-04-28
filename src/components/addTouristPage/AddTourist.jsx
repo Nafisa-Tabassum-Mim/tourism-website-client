@@ -26,7 +26,6 @@ const AddTourist = () => {
 
         const newTourism = { photo, tourismName, countryName, location, shortDescription, averageCost, seasonality, travelTime, totalVisitorsPerYear, email, name }
 
-        console.log(newTourism);
 
         // send data to the server
         fetch('http://localhost:5000/tourism', {

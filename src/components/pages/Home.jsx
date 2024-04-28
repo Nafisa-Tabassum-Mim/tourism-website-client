@@ -21,7 +21,7 @@ const Home = () => {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 mt-4">
                     {
-                        tourisms.map(tourism => <TourismSection key={tourism._id} tourism={tourism}></TourismSection>)
+                        tourisms.slice(0,6).map(tourism => <TourismSection key={tourism._id} tourism={tourism}></TourismSection>)
                     }
                 </div>
             </section >
