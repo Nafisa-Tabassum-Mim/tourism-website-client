@@ -15,6 +15,7 @@ import AddTourist from './components/addTouristPage/AddTourist.jsx';
 import PrivateRoute from './components/firebase/PrivateRoute.jsx';
 import TouristDetails from './components/addTouristPage/TouristDetails.jsx';
 import AllTouristSpot from './components/addTouristPage/AllTouristSpot.jsx';
+import MyList from './components/addTouristPage/MyList.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
       {
         path: '/alltouristspot',
         element: <AllTouristSpot></AllTouristSpot>,
+        loader: () => fetch('http://localhost:5000/tourism')
+      },
+      {
+        path: '/mylist',
+        element: <PrivateRoute><MyList></MyList></PrivateRoute>,
         loader: () => fetch('http://localhost:5000/tourism')
       },
       {
