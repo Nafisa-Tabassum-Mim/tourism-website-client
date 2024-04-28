@@ -11,6 +11,7 @@ import Home from './components/pages/Home.jsx';
 import Login from './components/pages/Login.jsx';
 import Register from './components/pages/Register.jsx';
 import AuthProvider from './components/firebase/AuthProvider.jsx';
+import AddTourist from './components/addTouristPage/AddTourist.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/addtouristspot',
+        element: <AddTourist></AddTourist>
       },
     ]
   },
