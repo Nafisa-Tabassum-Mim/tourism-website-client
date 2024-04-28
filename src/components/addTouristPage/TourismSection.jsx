@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
 const TourismSection = ({ tourism }) => {
-    console.log(tourism)
 
-    const {photo, tourismName, countryName,location,shortDescription,averageCost,seasonality,travelTime,totalVisitorsPerYear,email,name} = tourism
+    const { _id, photo, tourismName, countryName, location, shortDescription, averageCost, seasonality, travelTime, totalVisitorsPerYear, email, name } = tourism
+
 
     return (
         <div>
-             <div className="bg-base-100 m-4  shadow-md shadow-blue-300" >
+            <div className="bg-base-100 m-4  shadow-md shadow-blue-300" >
                 <figure className=" ">
                     <img src={photo} alt="Shoes" className=" h-[280px] w-full" />
                 </figure>
@@ -28,13 +28,10 @@ const TourismSection = ({ tourism }) => {
                         </div>
                     </div>
                     <div className="font-medium flex justify-between">
-                        <Link  className="btn text-white bg-blue-400 animate__animated animate__flipInY animate__delay-1s"> View Property</Link>
-                        {/* <div className="">
-                            <Link to={`/${id}`} className="btn border-2 border-orange-400 text-blue-300 bg-white font-bold px-6">View to Book</Link>
-                        </div> */}
+                        <Link to={`${_id}`} className="btn text-white bg-blue-400 "> View Details</Link>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
     );
 };

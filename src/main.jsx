@@ -13,6 +13,7 @@ import Register from './components/pages/Register.jsx';
 import AuthProvider from './components/firebase/AuthProvider.jsx';
 import AddTourist from './components/addTouristPage/AddTourist.jsx';
 import PrivateRoute from './components/firebase/PrivateRoute.jsx';
+import TouristDetails from './components/addTouristPage/TouristDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/:_id',
+        element: <PrivateRoute><TouristDetails></TouristDetails> </PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/tourism')
       },
       {
         path: '/addtouristspot',
