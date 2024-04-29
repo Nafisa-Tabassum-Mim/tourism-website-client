@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../firebase/AuthProvider";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateTourist = () => {
 
@@ -8,10 +9,10 @@ const UpdateTourist = () => {
     const tourism = useLoaderData();
     const { _id, photo, tourismName, countryName, location, shortDescription, averageCost, seasonality, travelTime, totalVisitorsPerYear } = tourism
 
-    const handleUpdateTourism = () => {
-        event.preventDefault();
+    const handleUpdateTourism = (e) => {
+        e.preventDefault();
 
-        const form = event.target;
+        const form = e.target;
 
         const photo = form.photo.value;
         const tourismName = form.tourists_spot_name.value;
@@ -25,9 +26,28 @@ const UpdateTourist = () => {
         const email = form.email.value;
         const name = form.name.value;
 
-        const newTourism = { photo, tourismName, countryName, location, shortDescription, averageCost, seasonality, travelTime, totalVisitorsPerYear, email, name }
+        const updatedTourism = { photo, tourismName, countryName, location, shortDescription, averageCost, seasonality, travelTime, totalVisitorsPerYear, email, name }
         // console.log(newTourism)
 
+        fetch(`http://localhost:5000/mylist/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedTourism)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Coffee Updated Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
 
     }
 

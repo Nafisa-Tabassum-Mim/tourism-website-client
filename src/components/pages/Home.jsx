@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import TourismSection from "../addTouristPage/TourismSection";
 import { useState } from "react";
 import MyList from "../addTouristPage/MyList";
+import Section1 from "./Section1";
 
 const Home = () => {
 
@@ -27,6 +28,7 @@ const Home = () => {
                     }
                 </div>
             </section >
+            <Section1></Section1>
         </div>
     );
 };
