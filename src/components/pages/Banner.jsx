@@ -47,7 +47,7 @@ const Banner = () => {
                     </div>
                     <div className="text" data-swiper-parallax="-100">
                         <p>
-                            Vacationing in Asia offers an unforgettable experience filled with diverse cultures, stunning landscapes, and rich history. From exploring ancient temples in Cambodia and Myanmar to indulging in mouthwatering street food in Thailand and Vietnam, Asia caters to a wide range of interests and preferences. Whether you're seeking adventure in the Himalayas, relaxation on tropical beaches, or immersion in bustling metropolises like Tokyo or Hong Kong, Asia has something for everyone.
+                            Vacationing in Asia offers an unforgettable experience filled with diverse cultures, stunning landscapes, and rich history. From exploring ancient temples in Cambodia and Myanmar to indulging in mouthwatering street food in Thailand and Vietnam, Asia caters to a wide range of interests and preferences.
                         </p>
                     </div>
                 </SwiperSlide>

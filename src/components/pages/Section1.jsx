@@ -3,7 +3,7 @@ import { FaArrowRight } from "react-icons/fa";
 const Section1 = () => {
     return (
         <div>
-            <div className="text-center my-4 mx-24">
+            <div className="text-center my-4 mx-4 md:mx-24">
                 <h3 className="text-4xl font-semibold mb-4">Affordable Tourism Packages</h3>
                 <p className="text-xl ">We believe that everyone deserves to experience their dream vacation without breaking the bank. That's why we offer a price section on our website that features a range of affordable travel</p>
             </div>
