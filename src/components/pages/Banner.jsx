@@ -34,7 +34,7 @@ const Banner = () => {
                     className="parallax-bg"
                     style={{
                         'backgroundImage':
-                            'url(https://i.ibb.co/86YLD85/hallstatt-3609863-640.jpg)',
+                            'url(https://i.ibb.co/B45s4xj/pexels-tobiasbjorkli-2104152.jpg)',
                     }}
                     data-swiper-parallax="-23%"
                 ></div>
