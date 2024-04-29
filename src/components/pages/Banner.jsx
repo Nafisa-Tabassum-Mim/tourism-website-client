@@ -40,58 +40,40 @@ const Banner = () => {
                 ></div>
                 <SwiperSlide>
                     <div className="title" data-swiper-parallax="-300">
-                        Slide 1
+                        Dream Vacation Destination
                     </div>
                     <div className="subtitle" data-swiper-parallax="-200">
-                        Subtitle
+                        Travel Destinations Available Worldwide
                     </div>
                     <div className="text" data-swiper-parallax="-100">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                            dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                            laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                            Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                            Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                            ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                            tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                            Vacationing in Asia offers an unforgettable experience filled with diverse cultures, stunning landscapes, and rich history. From exploring ancient temples in Cambodia and Myanmar to indulging in mouthwatering street food in Thailand and Vietnam, Asia caters to a wide range of interests and preferences. Whether you're seeking adventure in the Himalayas, relaxation on tropical beaches, or immersion in bustling metropolises like Tokyo or Hong Kong, Asia has something for everyone.
+                        </p>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="title " data-swiper-parallax="-300">
+                        Time to travel
+                    </div>
+                    <div className="subtitle" data-swiper-parallax="-200">
+                        Travel Destinations Available Worldwide
+                    </div>
+                    <div className="text" data-swiper-parallax="-100">
+                        <p>
+                            Exploring new destinations often involves walking, hiking, swimming, or engaging in other physical activities. This boosts your cardiovascular health, enhances muscle strength, and contributes to overall fitness.
                         </p>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="title" data-swiper-parallax="-300">
-                        Slide 2
+                        Vacation around the Nature
                     </div>
                     <div className="subtitle" data-swiper-parallax="-200">
-                        Subtitle
+                        Experiencing diverse cultures, traditions, and lifestyles
                     </div>
                     <div className="text" data-swiper-parallax="-100">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                            dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                            laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                            Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                            Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                            ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                            tincidunt ut libero. Aenean feugiat non eros quis feugiat.
-                        </p>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="title" data-swiper-parallax="-300">
-                        Slide 3
-                    </div>
-                    <div className="subtitle" data-swiper-parallax="-200">
-                        Subtitle
-                    </div>
-                    <div className="text" data-swiper-parallax="-100">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                            dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                            laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                            Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                            Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                            ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                            tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                            Travel to provide opportunities for personal growth, self-discovery, and emotional rejuvenation. It allows you to step outside your comfort zone, gain new perspectives, and cultivate a sense of fulfillment and happiness.
                         </p>
                     </div>
                 </SwiperSlide>

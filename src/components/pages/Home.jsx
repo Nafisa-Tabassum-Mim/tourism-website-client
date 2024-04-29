@@ -1,15 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import TourismSection from "../addTouristPage/TourismSection";
-import { useState } from "react";
-import MyList from "../addTouristPage/MyList";
 import Section1 from "./Section1";
 import Section2 from "./Section2";
 
 const Home = () => {
-
-    // const loadedTourisms = useLoaderData();
-    // const [tourisms, setTourisms] = useState(loadedTourisms);
 
     const tourisms = useLoaderData()
 
