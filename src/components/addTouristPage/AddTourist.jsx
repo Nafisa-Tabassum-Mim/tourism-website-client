@@ -28,7 +28,7 @@ const AddTourist = () => {
 
 
         // send data to the server
-        fetch('http://localhost:5000/tourism', {
+        fetch('https://tourism-website-server-jade.vercel.app/tourism', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

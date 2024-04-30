@@ -1,8 +1,13 @@
-# React + Vite
+## Website name - Royal Tourism
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live site URL- [firebase live link](https://tourism-9cf08.web.app/)
 
-Currently, two official plugins are available:
+## Website feature:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Category - Southeast Asia
+- It is a tourism website. You can see the details of tourism. You can find the best tourism according to your choice.
+- You can book your desire tourism.
+- You can add tourism spot. You can also update or delete your tourism.
+- Register to see more details about the tourisms. Go for a amazing vacation with your family from our tourism spot.
+- Login option - Email, Google, GitHub. Amazing user experience.
+

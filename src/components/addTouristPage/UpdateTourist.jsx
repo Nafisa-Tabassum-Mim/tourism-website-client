@@ -29,7 +29,7 @@ const UpdateTourist = () => {
         const updatedTourism = { photo, tourismName, countryName, location, shortDescription, averageCost, seasonality, travelTime, totalVisitorsPerYear, email, name }
         // console.log(newTourism)
 
-        fetch(`http://localhost:5000/mylist/${_id}`, {
+        fetch(`https://tourism-website-server-jade.vercel.app/mylist/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

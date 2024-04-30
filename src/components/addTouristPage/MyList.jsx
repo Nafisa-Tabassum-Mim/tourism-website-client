@@ -29,7 +29,7 @@ const MyList = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/mylist/${_id}`, {
+                fetch(`https://tourism-website-server-jade.vercel.app/mylist/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

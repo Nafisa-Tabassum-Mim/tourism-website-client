@@ -27,17 +27,17 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/tourism')
+        loader: () => fetch('https://tourism-website-server-jade.vercel.app/tourism')
       },
       {
         path: '/alltouristspot',
         element: <AllTouristSpot></AllTouristSpot>,
-        loader: () => fetch('http://localhost:5000/tourism')
+        loader: () => fetch('https://tourism-website-server-jade.vercel.app/tourism')
       },
       {
         path: '/mylist',
         element: <PrivateRoute><MyList></MyList></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/tourism')
+        loader: () => fetch('https://tourism-website-server-jade.vercel.app/tourism')
       },
       {
         path: '/login',
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       {
         path: '/:_id',
         element: <PrivateRoute><TouristDetails></TouristDetails> </PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/tourism')
+        loader: () => fetch('https://tourism-website-server-jade.vercel.app/tourism')
       },
       {
         path: '/addtouristspot',
@@ -58,8 +58,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/updatetouristspot/:id', 
-        element: <UpdateTourist></UpdateTourist>, 
-        loader: ({params}) => fetch(`http://localhost:5000/mylist/${params.id}`)
+        element: <PrivateRoute><UpdateTourist></UpdateTourist></PrivateRoute> , 
+        loader: ({params}) => fetch(`https://tourism-website-server-jade.vercel.app/mylist/${params.id}`)
       }
     ]
   },
